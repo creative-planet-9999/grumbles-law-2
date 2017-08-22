@@ -129,7 +129,13 @@ header nav {
 .line-list.people li::before {
     top: .9em; }
 .people {
+    overflow: hidden;
     position: relative; }
+    .people img {
+        transition: all 1s ease; }
+    .people:hover img {
+        -webkit-transform: scale(1.2) translateY(-20px);
+        transform: scale(1.2) translateY(-20px); }
     .people .desc {
         position: absolute;
         text-align: center;
@@ -138,7 +144,6 @@ header nav {
         color: #FFF;
         text-shadow: 5px -3px 10px #333; }
    .people .hover-desc {
-    display: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -146,9 +151,13 @@ header nav {
         width: 100%;
         color: #FFF;
         padding: 120px 70px;
-        background: rgba(31, 40, 68, 0.97); }
+        background: rgba(31, 40, 68, 0.95);
+        opacity: 0;
+        transition: all .3s ease;
+        transform: translateY(30px); }
         .people:hover .hover-desc {
-            display: block; }
+            opacity: 1;
+            transform: translateY(0); }
         .people .hover-desc a {
             color: #FFF;
             font-size: 18px;
@@ -168,7 +177,7 @@ textarea {
     font-size: 14px;
     line-height: 1em;
     letter-spacing: .2em;
-    color: #FFF !important;
+    /*color: #FFF !important;*/
     margin: 0 0 30px; }
     input[type="submit"] {
         background: #0E2830;
@@ -210,14 +219,19 @@ footer {
         opacity: .5; }
 
 
-
+.resource-list {
+    list-style: square; }
+.resource-list li {
+    line-height: 1.6em;
+    font-weight: 100; }
+.resource-list li a {
+    font-weight: 900; }
 
 
 .slider h1 > span {
   position: absolute;
   top: 0;
-  left: 0;
-}
+  left: 0; }
 .slider h1 > span.elem-visible {
   position: relative; }
 .slider h1 > span.elem-visible > span:nth-of-type(2) { animation-delay: 0.2s; }
