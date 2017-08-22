@@ -172,17 +172,22 @@ textarea {
     outline: none;
     position: relative;
     display: block;
-    border: 1px solid #333;
+    background: transparent;
+    border: 1px solid #FFF;
     padding: 27px 22px 64px;
     font-size: 14px;
     line-height: 1em;
     letter-spacing: .2em;
-    /*color: #FFF !important;*/
+    color: #FFF !important;
     margin: 0 0 30px; }
     input[type="submit"] {
         background: #0E2830;
+        border: 1px solid #0E2830;
         line-height: 105px;
-        padding: 0; }
+        padding: 0;
+        cursor: pointer; }
+        input::placeholder {
+            color: #FFF; }
 footer {
     background-image: url('img/footer-bg.jpg');
     background-size: cover;
