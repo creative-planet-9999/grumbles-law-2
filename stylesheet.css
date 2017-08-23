@@ -40,9 +40,6 @@ p.small {
     font-size: 16px;
     line-height: 30px;
     letter-spacing: .05em; }
-h2:last-child,
-p:last-child {
-    margin-bottom: 0; }
 img { vertical-align: bottom; }
 section {
     display: table;
@@ -72,7 +69,7 @@ header nav {
             width: 0%;
             background: #FFF;
             position: absolute;
-            bottom: -5px;
+            bottom: -4px;
             left: 0;
             opacity: .5;
             transition: all .5s cubic-bezier(0,1,.5,1); }
@@ -112,7 +109,7 @@ header nav {
                 margin-bottom: 40px; }
             .line-list li:before {
                 content: '';
-                background: #000;
+                background: #1f2844;
                 height: 1px;
                 top: .8em;
                 left: -30px;
@@ -131,9 +128,10 @@ header nav {
 .people {
     overflow: hidden;
     position: relative; }
-    .people img {
-        transition: all 1s ease; }
-    .people:hover img {
+    .people img:not(.placeholder) {
+        transition: all 1s ease;
+        transform: scale(1.01) translateY(0); }
+    .people:hover img:not(.placeholder) {
         -webkit-transform: scale(1.2) translateY(-20px);
         transform: scale(1.2) translateY(-20px); }
     .people .desc {
@@ -160,12 +158,37 @@ header nav {
             transform: translateY(0); }
         .people .hover-desc a {
             color: #FFF;
-            font-size: 18px;
+            font-size: 24px;
             line-height: 30px;
             letter-spacing: .2em;
+            margin-top: 1em;
+            display: inline-block;
             text-transform: uppercase; }
+            .people .hover-desc a:before {
+                content: '';
+                height: 1px;
+                width: 20px;
+                background: #FFF;
+                position: absolute;
+                top: 70%;
+                right: -50px;
+                transform: translateY(-6px) rotate(30deg);
+                transition: all .5s ease; }
+                .people .hover-desc a:hover:before {
+                    right: -90px; }
             .people .hover-desc a:after {
-                content: '---'; }
+                content: '';
+                height: 1px;
+                width: 40px;
+                background: #FFF;
+                position: absolute;
+                top: 70%;
+                left: calc(100% + 10px);
+                transform: translateY(-50%);
+                transition: all .5s ease; }
+                .people .hover-desc a:hover:after {
+                    width: 80px; }
+
 input,
 textarea {
     width: 100%;
@@ -186,6 +209,7 @@ textarea {
         line-height: 105px;
         padding: 0;
         cursor: pointer; }
+        textarea::placeholder,
         input::placeholder {
             color: #FFF; }
 footer {
@@ -227,7 +251,7 @@ footer {
 .resource-list {
     list-style: square; }
 .resource-list li {
-    line-height: 1.6em;
+    line-height: 2em;
     font-weight: 100; }
 .resource-list li a {
     font-weight: 900; }
@@ -279,7 +303,9 @@ footer {
 .slider h1 span.elem-hidden > span {
   animation-name: scale-down;
 }
-
+footer .col a img {
+    margin-left: 2px;
+}
 /* This animates individual letters of word */
 @keyframes scale-up {
   0% {
@@ -306,4 +332,85 @@ footer {
     opacity: 0;
     transform: scale(0);
   }
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        display: block; }
+    section {
+        padding: 100px 0 !important; }
+    .wrap {
+        overflow: auto !important; }
+    h1 {
+        font-size: 36px;
+        line-height: 36px; }
+    h2 {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 1em; }
+    h3 {
+        font-size: 24px; }
+    h4 {
+        font-size: 20px; }
+    h5 {
+        font-size: 24px;
+        line-height: 36px; }
+    p {
+        font-size: 16px;
+        line-height: 32px;
+        margin-bottom: 1.5em; }
+    p.small {
+        font-size: 14px;
+        line-height: 28px; }
+    footer .footer-logo,
+    footer .footer-logo span,
+    footer .footer-logo i {
+        color: #FFF !important; }
+        footer .footer-logo,
+        footer .footer-logo span {
+            font-size: 36px !important; }
+            footer .footer-logo i {
+                font-size: 24px !important; }
+    footer .col {
+        margin: 20px 0; }
+    footer .copyright {
+        line-height: 1.6em;
+        opacity: .3; }
+    header a.logo {
+        display: block;
+        padding: 15px 10px;
+        text-transform: uppercase;
+        font-size: 18px; }
+        .hamburger-menu {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            opacity: .7; }
+            ul.header-menu {
+            text-align: left;
+            background: #333; }
+
+    ul.header-menu li {
+        width: 100%; }
+    ul.header-menu li a {
+        line-height: 4em; }
+    .people .hover-desc {
+        padding: 15% 10%; }
+    .placeholder { display: none; }
+    body.people-page .slider {
+        align-items: flex-end;
+        background-position: 30% !important; }
+    body.people-page section:first-child,
+    body.people-page section:nth-child(2),
+    body.people-page section:last-child {
+        padding: 0 !important; }
+    .custom-1 h2 {
+        padding: 2em 1em 1.5em !important; }
+    .custom-2 {
+        padding: 100px 15px !important; }
+}
+@media screen and (min-width: 769px) {
+    h2:last-child,
+    p:last-child {
+        margin-bottom: 0; }
 }
