@@ -106,7 +106,7 @@ header nav {
             .line-list li:not(:last-child),
             .dot-list li:not(:last-child),
             .bar-list li:not(:last-child) {
-                margin-bottom: 40px; }
+                margin-bottom: 1em; }
             .line-list li:before {
                 content: '';
                 background: #1f2844;
@@ -414,3 +414,8 @@ footer .col a img {
     p:last-child {
         margin-bottom: 0; }
 }
+
+
+
+.wrap.full-wrap.no-margin-wrap .col {
+    padding: 50px; }
